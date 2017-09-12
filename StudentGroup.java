@@ -160,10 +160,10 @@ else
 Student s[]=new Student[n];
 for(int i=0;i<n;i++)
                s[i]=std[i];
-std=new Student[n-index-1];
+std=new Student[index+1];
 for(int i=0;i<=index;i++)
 std[i]=s[i];
-n=n-index-1;
+n=index+1;
 }
 	}
 
@@ -177,13 +177,14 @@ Student s[]=new Student[n];
 for(int i=0;i<n;i++)
                s[i]=std[i];
 int k=0;
-while(student!=s[k])
-{
-k++;}
+for(k=0;k<n;k++)
+   if(s[k]==student)break;
   std=new Student[k+1];
-  for(int i=0;i<=k;i++)
+if(k<n)
+ { for(int i=0;i<=k;i++)
     std[i]=s[i];
-n=n-k-1;
+n=k+1;
+}
 }
 	}
 
@@ -194,7 +195,7 @@ throw new IllegalArgumentException();
 else
 {
 int k=0;
-Student s[]=new Student[n-index];
+Student s[]=new Student[n];
 for(int i=0;i<n;i++)
                s[i]=std[i];
 std=new Student[n-index];
@@ -214,10 +215,7 @@ int k=0,j=0;
 Student s[]=new Student[n];
 for(int i=0;i<n;i++)
                s[i]=std[i];
-while(s[k]!=student)
-{
-k++;
-}
+for(k=0;k<n;k++)if(s[k]==student)break;
 
 for(int i=k;i<n;i++)
 std[j++]=s[i];
