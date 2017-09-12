@@ -21,7 +21,7 @@ public class StudentGroup implements StudentArrayOperation {
 	 * @param length
 	 */
 	public StudentGroup(int length) {
-		this.students = new Student[length];
+		this.std = new Student[length];
                 n=length;
 	}
 
@@ -55,7 +55,7 @@ return std[index];
 		if(student==null||index<0||index>=n)
 throw new IllegalArgumentException();
 else
-std[i]=student;
+std[index]=student;
 	}
 
 	@Override
@@ -176,13 +176,14 @@ else
 Student s[]=new Student[n];
 for(int i=0;i<n;i++)
                s[i]=std[i];
-std=new Student[n-index-1];
 int k=0;
 while(student!=s[k])
 {
-std[k]=s[k];
-k++}
-n=n-index-1;
+k++;}
+  std=new Student[k+1];
+  for(int i=0;i<=k;i++)
+    std[i]=s[i];
+n=n-k-1;
 }
 	}
 
@@ -213,7 +214,6 @@ int k=0,j=0;
 Student s[]=new Student[n];
 for(int i=0;i<n;i++)
                s[i]=std[i];
-std=new Student[n-index];
 while(s[k]!=student)
 {
 k++;
@@ -221,7 +221,7 @@ k++;
 
 for(int i=k;i<n;i++)
 std[j++]=s[i];
-n=n-index;
+n=n-k;
 }
 	}
 
